@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.student.project9_3.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/icon"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center|top">
+
+        <ImageButton
+            android:id="@+id/zoomin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zoom_in"/>
+
+        <ImageButton
+            android:id="@+id/zoomout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zoom_out"/>
+
+
+        <ImageButton
+            android:id="@+id/rotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rotate"/>
+
+
+        <ImageButton
+            android:id="@+id/bright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bright"/>
+
+
+        <ImageButton
+            android:id="@+id/dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dark"/>
+
+        <ImageButton
+            android:id="@+id/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gray"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/piclayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.student.baseapp.MainActivity">
+
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/btnToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/strBtn1" />
+
+    <Button
+        android:id="@+id/btnHomepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/strBtn2" />
+
+<RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RadioButton
+        android:id="@+id/nouga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/radBtn1" />
+
+    <RadioButton
+        android:id="@+id/oreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/radBtn2" />
+</RadioGroup>
+
+    <ImageView
+        android:id="@+id/ivAndroid"
+        android:layout_width="match_parent"
+        android:layout_height="306dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/oreo" />
+
+
+</LinearLayout>

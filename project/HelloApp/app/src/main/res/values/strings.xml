@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HelloApp</string>
+    <string name="btn1">눌러보세요</string>
+</resources>

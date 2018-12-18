@@ -1,0 +1,9 @@
+
+리스트뷰 만들기
+
+1) 리스트뷰 Layout에 배치
+2) 리스트뷰 객체 만들기 (Java)
+3) 리스트뷰에 Adapter등록하기
+4) 리스트뷰에 setOnItemClickListener등록하기
+
+
