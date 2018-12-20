@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox chbox;
     boolean idChecked;
     boolean passChecked;
+    SharedPreferences sharedPref;
 
 
 
@@ -41,20 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btn_login = (Button)findViewById(R.id.btn_login);
 
 
-        SharedPreferences sharedPref = getSharedPreferences("filename", Context.MODE_PRIVATE);
 
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("key1", "woosung");
-        editor.putString("key2", "1234");
-        editor.putString("key3", "test");
-        editor.putInt("key4", 1234);
-
-
-        Set<String> arr = new HashSet<String>();
-        arr.add("hi");
-        arr.add("android");
-        editor.putStringSet("key6", arr);
-        editor.commit();
 
 
         et_id.addTextChangedListener(new TextWatcher() {
