@@ -41,4 +41,9 @@ public class ListViewItem{
         this.date = date;
         this.img_id = img_id;
     }
+
+    public ListViewItem() {
+    }
+
+
 }

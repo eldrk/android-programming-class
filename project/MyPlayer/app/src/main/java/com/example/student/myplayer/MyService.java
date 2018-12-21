@@ -20,10 +20,21 @@ public class MyService extends Service {
             //액티비티에서 브로드캐스팅 된 인텐트를 리시버가 받아서
             //인텐트 안에 저장된 내용을 읽어본다.
             String btn = intent.getStringExtra("btn");
+            String time = intent.getStringExtra("time");
             //int value = intent.getIntExtra("player");
 
             //서비스에서 액티비티로 응답하기위한 인텐트
             Intent intent1 = new Intent("com.example.student.myplayer");
+
+            if(time != null){
+                if(time.equals("running_time")){
+                    if(player.isPlaying() && player!=null){
+                        intent1.putExtra("cur_time",Integer.toString(player.getCurrentPosition()));
+                        intent1.putExtra("full_time",Integer.toString(player.getDuration()));
+                    }
+                    sendBroadcast(intent1);
+                }
+            }
             if(btn != null) {
                 if(btn.equals("play")||btn.equals("pause")) {
                     if(player.isPlaying()){

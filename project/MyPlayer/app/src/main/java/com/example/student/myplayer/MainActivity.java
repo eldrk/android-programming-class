@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -26,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tv1,tv2;
     ProgressBar pb;
     boolean bstatePlay = false;
-    MediaPlayer mediaPlayer;
+    Progress progress;
+
+
 
 
 
@@ -59,13 +63,22 @@ public class MainActivity extends AppCompatActivity {
                             + "/music.mp3";
                     Intent intent = new Intent(MainActivity.this,MyService.class);
                     intent.putExtra("filepath",musicPath);
+
                     startService(intent);
-                    Log.d("PlayMp3", "mp3 file");
+                    //Log.d("PlayMp3", "mp3 file");
                 } catch (Exception e) {
-                    Log.d("PlayMp3", "mp3 file error");
+                    //Log.d("PlayMp3", "mp3 file error");
+                    e.printStackTrace();
                 }
             }
         }
+    }
+
+    private String transMillsec(int mill){
+        String result="";
+        int sec = (mill/1000)%60;
+        int min = (mill/(1000*60)%60);
+        return result;
     }
 
     @Override
@@ -113,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                     bstatePlay = true;
                     btn_start.setText("Pause");
 
+
                 }else if(state.equals("pause")||state.equals("stop")){
                     //서비스가 중지 혹은 일시중지 명령을 수행한 결과가 있다면
                     //재생중임을 표시하는 bstateplay변수에 false저장
@@ -124,6 +138,30 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    class Progress extends AsyncTask<Void,Void,Void>{
+        Intent intent = new Intent("com.example.student.myplayer");
+        @Override
+        protected void onPreExecute() {
+            intent.putExtra("time","running_time");
+        }
+
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            while (isCancelled() == false){
+                SystemClock.sleep(500);
+                sendBroadcast(intent);
+            }
+            return null;
+        }
+    }
+
 
     private void setPermission(){
         if(ContextCompat.checkSelfPermission(this,
